@@ -20,7 +20,7 @@
     <script>
         require(["esri/config", "esri/Map", "esri/views/MapView"], function(esriConfig, Map, MapView) {
   
-          esriConfig.apiKey = "YOUR_API_KEY";
+          esriConfig.apiKey = AAPK2360d0533bcf4cbbaf8b78a68abd9bdbNL4riN8pry979qf-gLw2pn2a-SD4R8qvLmgMkCeIBXQrCOI6aKQmfW7GlyY6Eiw0;
   
           const map = new Map({
             basemap: "arcgis/topographic" // basemap styles service
