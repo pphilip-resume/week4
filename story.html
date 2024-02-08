@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>ArcGIS Maps SDK for JavaScript Tutorials: Add a point, line, and polygon</title>
+  <title>week 04 Arc GIS map using Github</title>
   <style>
     html, body, #viewDiv {
       padding: 0;
@@ -33,47 +33,66 @@
 
   const view = new MapView({
     map: map,
-    center: [-118.80500,34.02700], //Longitude, latitude
-    zoom: 13,
+    center: [70.93111324821676, 40.53559251676039], //Longitude, latitude, 
+    zoom: 4,
     container: "viewDiv"
  });
 
  const graphicsLayer = new GraphicsLayer();
  map.add(graphicsLayer);
 
- const point = { //Create a point
-    type: "point",
-    longitude: -118.80657463861,
-    latitude: 34.0005930608889
- };
- const simpleMarkerSymbol = {
-    type: "simple-marker",
-    color: [226, 119, 40],  // Orange
-    outline: {
-        color: [255, 255, 255], // White
-        width: 1
-    }
- };
+//  const point = { //Create a point
+//     type: "point",
+//     longitude: 70.93111324821676,
+//     latitude: 40.53559251676039
+   
+//  };
+//  const simpleMarkerSymbol = {
+//     type: "simple-marker",
+//     color: [226, 119, 40],  // Orange
+//     outline: {
+//         color: [255, 255, 255], // White
+//         width: 1
+//     }
+//  };
 
- const pointGraphic = new Graphic({
-    geometry: point,
-    symbol: simpleMarkerSymbol
- });
- graphicsLayer.add(pointGraphic);
+//  const pointGraphic = new Graphic({
+//     geometry: point,
+//     symbol: simpleMarkerSymbol
+//  });
+//  graphicsLayer.add(pointGraphic);
 
  // Create a line geometry
  const polyline = {
     type: "polyline",
     paths: [
-        [-118.821527826096, 34.0139576938577], //Longitude, latitude
-        [-118.814893761649, 34.0080602407843], //Longitude, latitude
-        [-118.808878330345, 34.0016642996246]  //Longitude, latitude
+        [116.57049357428814, 40.43563422449616], //Longitude, latitude, 
+        [112.54115133792897, 37.87259254426126], //Longitude, latitude,, 
+        [112.45296476866471,34.62157275231313],  //Longitude, latitude , 
+        [108.95953811384632,34.26480973859237],
+        [107.2279234600913,34.37233339586895],
+        [105.73000624160557,34.58545256403961],
+        [103.80756068191403,36.08766776951259],
+      // [118.16853857847849,25.06541158036649],
+        [89.75510289555072,43.4657463618575],
+        [83.96944092117923,41.82991729178594],
+        [75.98367904683484,39.489552467696136],
+        [70.93111324821676,40.53559251676039],
+        [64.45025234839147,39.769503639642004],
+        [62.17592159242649,37.66458512091737],
+        [44.35310824590488,33.32387425367027],
+        [38.28880955098058,34.5729460672435],
+        [36.28494289521191,33.51767143621227],
+        [36.28219631311779,33.511946576528985],
+        [34.46675847104436,31.502351580533194],
+        [31.232368595547577,30.046684583302284]
+
     ]
  };
  const simpleLineSymbol = {
     type: "simple-line",
-    color: [226, 119, 40], // Orange
-    width: 2
+    color: [225, 0, 0], // Red
+    width: 3
  };
 
  const polylineGraphic = new Graphic({
@@ -81,46 +100,48 @@
     symbol: simpleLineSymbol
  });
  graphicsLayer.add(polylineGraphic);
+ 
 
  // Create a polygon geometry
- const polygon = {
-    type: "polygon",
-    rings: [
-        [-118.818984489994, 34.0137559967283], //Longitude, latitude
-        [-118.806796597377, 34.0215816298725], //Longitude, latitude
-        [-118.791432890735, 34.0163883241613], //Longitude, latitude
-        [-118.79596686535, 34.008564864635],   //Longitude, latitude
-        [-118.808558110679, 34.0035027131376]  //Longitude, latitude
-    ]
- };
+//  const polygon = {
+   //  type: "polygon",
+   //  rings: [
+   //      [-94.62452750404849, 36.5007421995836], //Longitude, latitude  34.266363684643146, 
+   //      [-94.54762321446971, 37.09894030533978], //Longitude, latitude, 
+   //      [-93.4883472929159, 37.099503023143626], //Longitude, latitude, 
+   //      [-93.77399179706566, 36.33554576441547], //Longitude, latitude, 
+   //      [-94.468877, 35.613161],   //Longitude, latitude, 
+        
+   //  ]
+//  };
 
- const simpleFillSymbol = {
-    type: "simple-fill",
-    color: [227, 139, 79, 0.8],  // Orange, opacity 80%
-    outline: {
-        color: [255, 255, 255],
-        width: 1
-    }
- };
+//  const simpleFillSymbol = {
+//     type: "simple-fill",
+//     color: [227, 139, 79, 0.8],  // Orange, opacity 80%
+//     outline: {
+//         color: [255, 255, 255],
+//         width: 1
+//     }
+//  };
 
- const popupTemplate = {
-    title: "{Name}",
-    content: "{Description}"
- }
- const attributes = {
-    Name: "Graphic",
-    Description: "I am a polygon"
- }
+//  const popupTemplate = {
+//     title: "{Name}",
+//     content: "{Description}"
+//  }
+//  const attributes = {
+//     Name: "Graphic",
+//     Description: "I am a good polygon"
+//  }
 
- const polygonGraphic = new Graphic({
-    geometry: polygon,
-    symbol: simpleFillSymbol,
+//  const polygonGraphic = new Graphic({
+//     geometry: polygon,
+//     symbol: simpleFillSymbol,
 
-    attributes: attributes,
-    popupTemplate: popupTemplate
+//     attributes: attributes,
+//     popupTemplate: popupTemplate
 
- });
- graphicsLayer.add(polygonGraphic);
+//  });
+ //graphicsLayer.add(polygonGraphic);
 
  });
 </script>
