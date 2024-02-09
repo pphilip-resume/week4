@@ -10,6 +10,10 @@
       height: 100%;
       width: 100%;
     }
+    /* h1{
+      text-align: center;
+      color: blue;
+    } */
   </style>
   <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
   <script src="https://js.arcgis.com/4.28/"></script>
@@ -19,7 +23,6 @@
     "esri/config",
     "esri/Map",
     "esri/views/MapView",
-
     "esri/Graphic",
     "esri/layers/GraphicsLayer"
 
@@ -28,7 +31,7 @@
   esriConfig.apiKey = "AAPKf45527695aa847edb865e02bbd9b7d08SnAIpOq2FSZHTZ6VBNfMmY__m1njM-RPfBOGTrBA7QjUwDD7I6pTeZds9d_Ck6K5";
 
   const map = new Map({
-    basemap: "osm" // basemap styles service
+    basemap: "arcgis-imagery" // basemap styles service
   });
 
   const view = new MapView({
@@ -40,6 +43,28 @@
 
  const graphicsLayer = new GraphicsLayer();
  map.add(graphicsLayer);
+
+ const multipoint = { //Create a point
+    type: "multipoint",
+    points: [
+    [116.57049357428814,40.43563422449616], 
+    [31.232368595547577,30.046684583302284]
+     ]
+ };
+ const simpleMarkerSymbol = {
+    type: "simple-marker",
+    color: [255, 255, 0],  // Orange
+    outline: {
+        color: [255, 0, 255], // White
+        width: 1
+    }
+ };
+
+ const multipointGraphic = new Graphic({
+    geometry: multipoint,
+    symbol: simpleMarkerSymbol
+ });
+ graphicsLayer.add(multipointGraphic);
 
 //  const point = { //Create a point
 //     type: "point",
@@ -101,7 +126,7 @@
  });
  graphicsLayer.add(polylineGraphic);
  
-
+});
  // Create a polygon geometry
 //  const polygon = {
    //  type: "polygon",
@@ -143,10 +168,11 @@
 //  });
  //graphicsLayer.add(polygonGraphic);
 
- });
+
 </script>
 </head>
 <body>
+  <!-- <h1>The Silk Route</h1> -->
   <div id="viewDiv"></div>
 </body>
 </html>
