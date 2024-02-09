@@ -1,0 +1,68 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ArcGIS Maps SDK for JavaScript Tutorials: Add a feature layer</title>
+  <style>
+    html, body, #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.28/"></script>
+
+  <script>
+  require([
+    "esri/config",
+    "esri/Map",
+    "esri/views/MapView",
+
+    "esri/layers/FeatureLayer"
+
+  ], function(esriConfig, Map, MapView, FeatureLayer) {
+
+  //esriConfig.apiKey = "AAPKf45527695aa847edb865e02bbd9b7d08SnAIpOq2FSZHTZ6VBNfMmY__m1njM-RPfBOGTrBA7QjUwDD7I6pTeZds9d_Ck6K5";
+
+  const map = new Map({
+    basemap: "oceans"
+  });
+
+  const view = new MapView({
+    container: "viewDiv",
+    map: map,
+    center: [77.4869204,11.234817],
+    zoom: 8
+  });
+
+//Trailheads feature layer (points)
+  const roadtrip = new FeatureLayer({
+    url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/myRoadTrip/FeatureServer"
+  });
+
+  map.add(roadtrip);
+
+// Trails feature layer (lines)
+//   const trailsLayer = new FeatureLayer({
+//     url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/myRoadTrip/FeatureServer"
+//   });
+
+//   map.add(trailsLayer, 0);
+
+// Parks and open spaces (polygons)
+//   const parksLayer = new FeatureLayer({
+//     url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space/FeatureServer/0"
+//   });
+
+//   map.add(parksLayer, 0);
+
+  });
+</script>
+
+</head>
+<body>
+  <div id="viewDiv"></div>
+</body>
+</html>
