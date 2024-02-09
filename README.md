@@ -22,6 +22,10 @@ These were the following errors observed as map was loaded
 ![Error Console map](Console_error.png)
 ![Error Basemap](error_map.png)
 
+I commented out the API key and changes the basemap
+![New](proper_map.png)
+
+
 Settings used:
 Google Chrome, Visual StudioCode and Github was used for the map.
 
