@@ -7,3 +7,4 @@ When the refferer is added along with the API key the ArcGIS topographic basemap
 Only the zoom options are shown when loading the page.
 
 Google Chrome, Visual StudioCode and Github was used for the map.
+
